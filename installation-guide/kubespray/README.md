@@ -29,9 +29,6 @@
 ## 执行Kubespray 
 
 1. 到Kubespray机器
-1. 修改`inventory/mycluster/group_vars/k8s-cluster.yml`文件：
-   * `kubeconfig_localhost: true`
-   * `kubectl_localhost: true`
 1. 观察K8S集群机器网卡的MTU：`ifconfig`：
    ```
    ens3      Link encap:Ethernet  HWaddr fa:16:3e:67:b7:23
@@ -42,28 +39,32 @@
    ```
    这个例子中的MTU是1450，记住这个数字
 1. 修改`roles/network_plugin/calico/defaults/main.yml`文件里的`calico_mtu`参数，根据[官方文档][calico-mtu]给每个服务器设置MTU。简单来说就是kubespray默认为calico启用了IP-in-IP模式，那么它的MTU应该是网卡MTU-20。
-1. 根据项目仓库的指南执行命令
+1. 根据项目仓库的指南执行命令，**但是不要执行最后的`ansible-playbook ...`**
+1. 修改`inventory/mycluster/group_vars/k8s-cluster.yml`文件：
+   * `kubeconfig_localhost: true`
+   * `kubectl_localhost: true`
+1. 执行`ansible-playbook ...`
 
 
 ### Troubleshooting
 
 #### 提示Permission denied之类的错误
 
-可能是执行Ansible playbook的时候，ssh到target node执行某些命令缺少root权限。
+执行Ansible playbook的时候，ssh到target node执行某些命令缺少root权限。
 
 在教程的最后一步`ansible-playbook -i inventory/mycluster/hosts.ini cluster.yml`，根据情况添加`-b --become-user --become-method`等参数。
 
-写本文时target node是ubuntu cloud image，所以只需添加`-b`参数就行了。其余情况请自行摸索。
-
-同时也要记得添加`-u 用户名`参数。
+写本文时target node是ubuntu cloud image，所以添加`-b -u ubuntu`。其他Linux请自行摸索。
 
 #### 提示unable to resolve host
 
-这是因为每个target node有一个hostname，但是在`/etc/hosts`下没有配置造成的，修改每个target node的`/etc/hosts`，比如：
+这是因为每个target node有一个hostname，但是在`/etc/hosts`下没有配置造成的：
 
-```
-127.0.0.1 localhost kube-1
-```
+1. 执行`hostname`获得hostname
+1. 修改`/etc/hosts`：
+   ```
+   127.0.0.1 localhost <hostname>
+   ```
 
 #### 提示FAILED! ip in ansible\_all\_ipv4\_addresses
 
@@ -76,14 +77,12 @@
 node1 ansible_host=172.50.10.2 ip=192.168.1.4
 node2 ansible_host=172.50.10.13 ip=192.168.1.8
 node3 ansible_host=172.50.10.15 ip=192.168.1.9
-
 ...
 ```
 
-
 ## 用kubectl访问
 
-你可以在你自己的电脑上安装kubectl来管理K8S集群
+到这里，你应该已经安装完毕K8S了，然后你就可以在你自己的电脑上利用kubectl来管理K8S集群了：
 
 1. [Install and Set Up kubectl][install-kubectl]
 1. 到Kubespray机器找到`inventory/mycluster/artifacts/admin.conf`文件，copy到你自己电脑的`~/.kube/config`文件
