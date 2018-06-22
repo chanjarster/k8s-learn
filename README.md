@@ -9,5 +9,6 @@
 ## 组件安装指南
 
 * [Ingress](addons-guide/ingress/README.md)
+* [Dashboard配置Ingress](addons-guide/dashboard/README.md)
 * [Elasticsearch, Fluentd, Kibana](addons-guide/efk/README.md)
 * [Prometheus](addons-guide/prometheus/README.md)
