@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: k8s-kibana
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    # nginx.ingress.kubernetes.io/add-base-url: "true"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    # nginx.ingress.kubernetes.io/app-root: /
+    # nginx.ingress.kubernetes.io/proxy-redirect-from: /app/kibana
+    # nginx.ingress.kubernetes.io/proxy-redirect-to: /k8s-kibana/app/kibana
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /k8s-kibana
+        backend:
+          serviceName: kibana-logging
+          servicePort: 5601
