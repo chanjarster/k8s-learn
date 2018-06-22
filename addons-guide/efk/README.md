@@ -20,13 +20,14 @@ K8S是将Pod中的stdout和stderr都输出到node机器上的某个目录下的�
    这一步很重要，因为之后我们要用Ingress做反向代理的。
 1. 安装EFK：`kubectl apply -f efk-install`
 
-配置Ingress：
+**配置Ingress**
 
-1. 使用本项目提供的配置文件：
-   ```
-   kubectl apply -f es-ingress.yaml
-   kubectl apply -f kibana-ingress.yaml
-   ```
+使用本项目提供的配置文件：
+
+```
+kubectl apply -f es-ingress.yaml
+kubectl apply -f kibana-ingress.yaml
+```
 
 然后你就可以通过一下地址访问elasticsearch和kibana了：
 

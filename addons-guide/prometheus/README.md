@@ -50,12 +50,11 @@
    注意设置正确的`<any-node-ip>`和`<ingress-http-port>`。
    添加这个参数的目的是为了后面Ingress能走通
 
-配置Ingress
+**配置Ingress**
 
-1. 使用本项目提供的配置文件：
-   ```
-   kubectl apply -f alertmanager-main-ingress.yaml   kubectl apply -f grafana-ingress.yaml   kubectl apply -f prometheus-k8s-ingress.yaml
-   ```
+```
+kubectl apply -f alertmanager-main-ingress.yamlkubectl apply -f grafana-ingress.yamlkubectl apply -f prometheus-k8s-ingress.yaml
+```
 
 然后就可以通过以下地址访问相关组件了：
 
