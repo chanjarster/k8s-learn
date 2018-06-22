@@ -27,8 +27,8 @@ K8S是将Pod中的stdout和stderr都输出到node机器上的某个目录下的�
 
 然后你就可以通过一下地址访问elasticsearch和kibana了：
 
-* `http://<any-node-ip>:<ingress-port>/k8s-kibana`
-* `http://<any-node-ip>:<ingress-port>/k8s-es`
+* `http://<any-node-ip>:<ingress-http-port>/k8s-kibana`
+* `http://<any-node-ip>:<ingress-https-port>/k8s-es`
  
 参考文档：[k8s addon/efk仓库][k8s-github-efk]。
 
