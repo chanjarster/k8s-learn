@@ -19,8 +19,8 @@ docker pull image gcr.mirrors.ustc.edu.cn/google-containers/xxx:yyy
 脚本：
 
 ```bash
-find . -name '*.yml' -or -name '*.yaml' | xargs -n1 -I{} sed -i  's/gcr\.io\/google-containers\//gcr\.mirrors\.ustc\.edu\.cn\/google-containers\//' {}`
-find . -name '*.yml' -or -name '*.yaml' | xargs -n1 -I{} sed -i  's/gcr\.io\/google_containers\//gcr\.mirrors\.ustc\.edu\.cn\/google-containers\//' {}`
+find . -name '*.yml' -or -name '*.yaml' | xargs -n1 -I{} sed -i  's/gcr\.io\/google-containers\//gcr\.mirrors\.ustc\.edu\.cn\/google-containers\//' {}
+find . -name '*.yml' -or -name '*.yaml' | xargs -n1 -I{} sed -i  's/gcr\.io\/google_containers\//gcr\.mirrors\.ustc\.edu\.cn\/google-containers\//' {}
 ```
 
 也可以使用[anjia0532的搬运仓库][anjia0532]
@@ -45,7 +45,7 @@ docker pull image quay.mirrors.ustc.edu.cn/xxx/yyy:zzz
 脚本：
 
 ```bash
-find . -name '*.yml' -or -name '*.yaml' | xargs -n1 -I{} sed -i  's/quay\.io\//quay\.mirrors\.ustc\.edu\.cn\//' {}`
+find . -name '*.yml' -or -name '*.yaml' | xargs -n1 -I{} sed -i  's/quay\.io\//quay\.mirrors\.ustc\.edu\.cn\//' {}
 ```
 
 ### Docker hub镜像
