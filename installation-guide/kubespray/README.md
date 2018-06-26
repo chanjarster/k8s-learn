@@ -21,7 +21,7 @@
    ```
    net.ipv4.ip_forward = 1
    ```
-1. 给每个node都安装ntp
+1. 给每个node都安装ntpd，关于ntpd的说明见[这里][ntpd]
 1. 关闭node上的防火墙（似乎不是必须的）
 1. 将Kubespray机器的`.ssh/id_rsa.pub`上传到每个K8S集群机器上：
    `ssh-copy-id user@target-node-host`   
@@ -138,3 +138,4 @@ clusters:
 [anjia0532-mirror]: https://github.com/anjia0532/gcr.io_mirror
 [ustc-mirror]: https://github.com/ustclug/mirrorrequest
 [kubectl-multi-cluster]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
+[ntpd]: https://wiki.dovecot.org/TimeMovedBackwards#Time_synchronization
