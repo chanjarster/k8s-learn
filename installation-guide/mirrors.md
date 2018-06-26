@@ -21,6 +21,7 @@ docker pull image gcr.mirrors.ustc.edu.cn/google-containers/xxx:yyy
 ```bash
 find . -name '*.yml' -or -name '*.yaml' | xargs -n1 -I{} sed -i  's/gcr\.io\/google-containers\//gcr\.mirrors\.ustc\.edu\.cn\/google-containers\//' {}
 find . -name '*.yml' -or -name '*.yaml' | xargs -n1 -I{} sed -i  's/gcr\.io\/google_containers\//gcr\.mirrors\.ustc\.edu\.cn\/google-containers\//' {}
+find . -name '*.yml' -or -name '*.yaml' | xargs -n1 -I{} sed -i  's/k8s\.gcr\.io\//gcr\.mirrors\.ustc\.edu\.cn\/google-containers\//' {}
 ```
 
 也可以使用[anjia0532的搬运仓库][anjia0532]
@@ -30,6 +31,7 @@ find . -name '*.yml' -or -name '*.yaml' | xargs -n1 -I{} sed -i  's/gcr\.io\/goo
 ```bash
 find . -name '*.yml' -or -name '*.yaml' | xargs -n1 -I{} sed -i  's/gcr\.io\/google-containers\//anjia0532\/google-containers\./' {}
 find . -name '*.yml' -or -name '*.yaml' | xargs -n1 -I{} sed -i  's/gcr\.io\/google_containers\//anjia0532\/google-containers\./' {}
+find . -name '*.yml' -or -name '*.yaml' | xargs -n1 -I{} sed -i  's/k8s\.gcr\.io\//anjia0532\/google-containers\./' {}
 ```
 
 ### quay.io
