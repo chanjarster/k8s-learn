@@ -50,7 +50,10 @@ find . -name '*.yml' -or -name '*.yaml' | xargs -n1 -I{} sed -i  's/quay\.io\//q
 
 ### Docker hub镜像
 
-Docker hub有时候会抽风，可以在每个kubelet服务器上配置[Daocloud][daocloud]提供的镜像加速服务，具体用法见网站。
+Docker hub有时候会抽风，可以在每个kubelet服务器上配置镜像，有以下选项：
+
+1. [Daocloud][daocloud]，具体用法见网站。
+1. [中科大][ustc-docker]，具体用法见网站。
 
 ## Linux软件源
 
@@ -95,3 +98,4 @@ find . -name '*.yml' -or -name '*.yaml' | xargs -n1 -I{} sed -i  's/https:\/\/ap
 [anjia0532]: https://github.com/anjia0532/gcr.io_mirror
 [ustc-gcr]: https://github.com/ustclug/mirrorrequest/issues/187
 [ustc-quay]: https://github.com/ustclug/mirrorrequest/issues/135
+[ustc-docker]: http://mirrors.ustc.edu.cn/help/dockerhub.html
