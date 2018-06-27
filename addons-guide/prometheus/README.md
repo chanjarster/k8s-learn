@@ -3,7 +3,7 @@
 本文根据[kube-prometheus官方文档][kube-prometheus]来安装Prometheus，但是做了一些修改。
 
 1. 到[prometheus github][prometheus-github]下载代码
-1. 把`master/contrib/kube-prometheus/manifests`copy出来，取个名字叫做`prometheus-install`
+1. 把`contrib/kube-prometheus/manifests`copy出来，取个名字叫做`prometheus-install`
 1. 根据[镜像/加速仓库清单][mirrors.md]的方法替换仓库地址
 1. 根据[grafana behind proxy][grafana-behind-proxy]的说明，修改`grafana-deployment.yaml`，添加`GF_SERVER_ROOT_URL`的环境变量，这个关系到后面Ingress是否能够正常反向代理：
    ```yaml
@@ -53,7 +53,9 @@
 **配置Ingress**
 
 ```
-kubectl apply -f alertmanager-main-ingress.yamlkubectl apply -f grafana-ingress.yamlkubectl apply -f prometheus-k8s-ingress.yaml
+kubectl apply -f alertmanager-main-ingress.yaml
+kubectl apply -f grafana-ingress.yaml
+kubectl apply -f prometheus-k8s-ingress.yaml
 ```
 
 然后就可以通过以下地址访问相关组件了：
