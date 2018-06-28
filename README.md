@@ -4,15 +4,15 @@
 
 ## 集群安装指南
 
-* [使用Kubespray安装](installation-guide/kubespray/README.md)
+* [使用Kubespray安装](installation-guide/kubespray)
 
 ## 组件安装指南
 
-* [Ingress](addons-guide/ingress/README.md)
-* [Dashboard配置Ingress](addons-guide/dashboard/README.md)
-* [Elasticsearch, Fluentd, Kibana](addons-guide/efk/README.md)
-* [Prometheus](addons-guide/prometheus/README.md)
+* [Ingress](addons-guide/ingress)
+* [Dashboard配置Ingress](addons-guide/dashboard)
+* [Elasticsearch, Fluentd, Kibana](addons-guide/efk)
+* [Prometheus](addons-guide/prometheus)
 
 ## Sample App
 
-* [Echo Server](sample-app/echo-server/README.md)
+* [Echo Server](sample-app/echo-server)
