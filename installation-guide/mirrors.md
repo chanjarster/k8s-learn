@@ -21,7 +21,6 @@ docker pull image gcr.mirrors.ustc.edu.cn/google-containers/xxx:yyy
 ```bash
 find . -name '*.yml' -or -name '*.yaml' | xargs -n1 -I{} sed -i  's/gcr\.io\/google-containers\//gcr\.mirrors\.ustc\.edu\.cn\/google-containers\//' {}
 find . -name '*.yml' -or -name '*.yaml' | xargs -n1 -I{} sed -i  's/gcr\.io\/google_containers\//gcr\.mirrors\.ustc\.edu\.cn\/google-containers\//' {}
-find . -name '*.yml' -or -name '*.yaml' | xargs -n1 -I{} sed -i  's/k8s\.gcr\.io\//gcr\.mirrors\.ustc\.edu\.cn\/google-containers\//' {}
 ```
 
 也可以使用[anjia0532的搬运仓库][anjia0532]
@@ -31,6 +30,32 @@ find . -name '*.yml' -or -name '*.yaml' | xargs -n1 -I{} sed -i  's/k8s\.gcr\.io
 ```bash
 find . -name '*.yml' -or -name '*.yaml' | xargs -n1 -I{} sed -i  's/gcr\.io\/google-containers\//anjia0532\/google-containers\./' {}
 find . -name '*.yml' -or -name '*.yaml' | xargs -n1 -I{} sed -i  's/gcr\.io\/google_containers\//anjia0532\/google-containers\./' {}
+```
+
+### k8s.gcr.io
+
+k8s.gcr.io等价于gcr.io/google-containers，因此同上可以使用中科大镜像或者anjia0532的搬运仓库。
+
+
+使用[中科大的镜像][ustc-gcr]
+
+```bash
+docker pull image k8s.gcr.io/xxx:yyy
+=>
+docker pull image gcr.mirrors.ustc.edu.cn/google-containers/xxx:yyy
+```
+
+脚本：
+
+```bash
+find . -name '*.yml' -or -name '*.yaml' | xargs -n1 -I{} sed -i  's/k8s\.gcr\.io\//gcr\.mirrors\.ustc\.edu\.cn\/google-containers\//' {}
+```
+
+使用[anjia0532的搬运仓库][anjia0532]
+
+脚本：
+
+```bash
 find . -name '*.yml' -or -name '*.yaml' | xargs -n1 -I{} sed -i  's/k8s\.gcr\.io\//anjia0532\/google-containers\./' {}
 ```
 
