@@ -15,4 +15,8 @@
 
 ## Sample App
 
-* [Echo Server](sample-app/echo-server)
+* [Echo Server](sample-apps/echo-server)
+
+## 坑
+
+* [Http Redirect端口丢失问题](pitfalls/http-302)
