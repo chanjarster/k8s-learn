@@ -104,6 +104,9 @@ https://download.docker.com/linux/ubuntu/gpg
 find . -name '*.yml' -or -name '*.yaml' | xargs -n1 -I{} sed -i  's/https:\/\/download\.docker\.com\/linux\/ubuntu/http:\/\/mirrors\.aliyun\.com\/docker-ce\/linux\/ubuntu/' {}`
 find . -name '*.yml' -or -name '*.yaml' | xargs -n1 -I{} sed -i  's/https:\/\/download\.docker\.com\/linux\/ubuntu\/gpg/http:\/\/mirrors\.aliyun\.com\/docker-ce\/linux\/ubuntu\/gpg/' {}`
 ```
+
+参考：https://yq.aliyun.com/articles/110806
+
 #### docker project apt repo
 
 ```bash
