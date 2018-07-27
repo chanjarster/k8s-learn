@@ -1,5 +1,7 @@
 # 使用Kubespray安装k8s集群
 
+在使用Kubespray之前，请[应用镜像地址](apply-mirrors.md)
+
 ## 准备Kubespray
 
 **请不要使用Kubespray的master分支，请使用最新tag来安装K8S集群**

@@ -1,10 +1,11 @@
 # k8s-learn
 
-**注意：在中国实施K8S之前，请务必使用[镜像/加速仓库清单](installation-guide/mirrors.md)，因为之后的所有操作都需要替换仓库地址，否则会安装失败**
+**注意：在中国安装使用Docker之前，请务必使用[Docker镜像清单](installation-guide/docker-mirrors.md)**
 
 ## 集群安装指南
 
-* [使用Kubespray安装](installation-guide/kubespray)
+* [使用Kubespray安装](installation-guide/kubespray/README.md)
+* [使用Rancher 2.0安装](installation-guide/rancher2.0/README.md)
 
 ## 组件安装指南
 
@@ -20,3 +21,9 @@
 ## 坑
 
 * [Http Redirect端口丢失问题](pitfalls/http-302)
+
+## 镜像清单
+
+* [Docker镜像清单](installation-guide/docker-mirrors.md)
+* [K8S Image仓库镜像](installation-guide/k8s-image-repo-mirrors.md)
+
