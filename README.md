@@ -5,7 +5,7 @@
 ## 集群安装指南
 
 * [使用Kubespray安装](installation-guide/kubespray/README.md)
-* [使用Rancher 2.0安装](installation-guide/rancher2.0/README.md)
+* [使用Rancher 2.0安装](installation-guide/rancher2.0/README.md)(无DNS)
 
 ## 组件安装指南
 
