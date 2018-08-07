@@ -13,6 +13,7 @@
 * [Dashboard配置Ingress](addons-guide/dashboard)
 * [Elasticsearch, Fluentd, Kibana](addons-guide/efk)
 * [Prometheus](addons-guide/prometheus)
+* [linkred2(conduit)](addons-guide/linkerd2)
 
 ## Sample App
 
