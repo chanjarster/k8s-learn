@@ -43,7 +43,8 @@ docker load --input linkerd2-images-v18.7.2.tar.gz
 办法就是先按照[官方文档](https://linkerd.io/2/getting-started/)的方法安装。然后运行这个命令获得container的image清单:
 
 ```
-printf '%s\n' $(kubectl -n linkerd get pods -o jsonpath='{range .items[*]}{@.spec.containers[*].image}{" "}{@.spec.initContainers[*].image}{" "}') \
+printf '%s\n' \
+$(kubectl -n linkerd get pods -o jsonpath='{range .items[*]}{@.spec.containers[*].image}{" "}{@.spec.initContainers[*].image}{" "}') \
 | sort | uniq
 ```
 
