@@ -49,3 +49,8 @@ $(kubectl -n linkerd get pods -o jsonpath='{range .items[*]}{@.spec.containers[*
 ```
 
 然后根据获得的结果导入image。
+
+## 已知问题
+
+1. 见[issue #1421](https://github.com/linkerd/linkerd2/issues/1421)。linkerd-proxy sidecar和linkerd-controller无法建立连接。
+
