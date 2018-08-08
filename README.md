@@ -18,6 +18,7 @@
 ## Sample App
 
 * [Echo Server](sample-apps/echo-server)
+* [Emojivoto](sample-apps/emojivoto)(linkerd2 demo app)
 
 ## 坑
 
