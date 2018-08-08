@@ -9,11 +9,12 @@
 
 ## 组件安装指南
 
-* [Ingress](addons-guide/ingress)
+* [Ingress Nginx](addons-guide/ingress)
 * [Dashboard配置Ingress](addons-guide/dashboard)
 * [Elasticsearch, Fluentd, Kibana](addons-guide/efk)
 * [Prometheus](addons-guide/prometheus)
 * [linkred2(conduit)](addons-guide/linkerd2)
+* [istio](addons-guide/istio)
 
 ## Sample App
 
