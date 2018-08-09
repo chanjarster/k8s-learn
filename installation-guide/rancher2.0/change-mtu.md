@@ -82,7 +82,19 @@ metadata:
 1. 这个文件是Rancher生成的，修改了可能会被改回去
 1. 光改文件没有用，需要重启Calico服务才可以
 
-为了解决第一个问题，我们要修改ConfigMap `canal-config`，在Rancher登录，跑到namespace `kube-system`，Resources -> Config Maps，找到`canal-config`，根据[Calico Configuring MTU - MTU configuration with CNI][calico-mtu-cni]文档里的方法修改`cni_network_config`，它的值就是生成`/etc/cni/net.d/10-calico.conflist`的模板。
+为了解决第一个问题，我们要修改ConfigMap `canal-config`，在Rancher登录，跑到namespace `kube-system`，Resources -> Config Maps，找到`canal-config`，根据[Calico Configuring MTU - MTU configuration with CNI][calico-mtu-cni]文档里的方法修改`cni_network_config`，它的值就是生成`/etc/cni/net.d/10-calico.conflist`的模板，在`"type": "calico"`属性下面加上mtu参数，比如这样：
+
+```yaml
+{
+    "name": "any_name",
+    "cniVersion": "0.1.0",
+    "type": "calico",
+    "mtu": 1480,
+    "ipam": {
+        "type": "calico-ipam"
+    }
+}
+```
 
 不过这里又有一个坑，Rancher在安装的时候生成的ConfigMap `canal-config`有一个key叫做`canal_iface`是空值（见[RKE源码][rke-canal-template]），然而在Rancher里修改ConfigMap都会把空值key给干掉，导致后面一步的DaemonSet `canal`启动不了，报`Couldn't find key canal_iface in ConfigMap kube-system/canal-config`的错，所以我们要手动添加`canal_iface`这个key到ConfigMap `canal-config`里，值填物理网卡名称就好了（关于这个问题我已经提交[issue #15010][issue-15010]到Rancher），如果你的Node的物理网卡名称不一样那就歇菜了。
 
