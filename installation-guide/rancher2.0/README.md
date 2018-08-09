@@ -123,6 +123,10 @@
 
 之后你就能看到cattle-cluster-agent变成绿色的了。
 
+## 14. 设置正确的MTU
+
+见这篇文章[修改MTU](change-mtu.md)。
+
 ## 参考文档
 
 * [Get Docker CE for Ubuntu][docker-ce-ubuntu]
