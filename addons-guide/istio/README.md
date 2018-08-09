@@ -46,7 +46,7 @@ docker save \
 docker load --input istio-images-v1.0.0.tar.gz
 ```
 
-然后根据[官方文档][official-install]的方法下载istio，然后跑到`install/kubernetes`目录下，执行`kubectl apply -f .`。这个命令有可能第一次会失败，不要紧再执行一遍就行了。
+然后根据[官方文档][official-install]的方法下载istio，然后根据[Quick Start with Kubernetes][Quick Start with Kubernetes]或者[Installation with Helm][Installation with Helm]安装。
 
 
 ## 备注
@@ -64,3 +64,5 @@ $(kubectl -n istio-system get pods -o jsonpath='{range .items[*]}{@.spec.contain
 然后根据获得的结果导入image。
 
 [official-install]: https://istio.io/docs/setup/kubernetes/download-release/
+[Quick Start with Kubernetes]: https://istio.io/docs/setup/kubernetes/quick-start/
+[Installation with Helm]: https://istio.io/docs/setup/kubernetes/helm-install/
