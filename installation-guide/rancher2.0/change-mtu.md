@@ -91,7 +91,10 @@ metadata:
 之后你就可以到Node上执行ifconfig观察`cali*`网卡的MTU，不过你会失望，因为这样的修改只对之后创建的Pod有效，对于已有Pod不发生作用，解决办法有两个：
 
 1. 干掉这些Pod，让K8S的自动重启机制创建新Pod，不过这个办法不好，可能对Stateful Pod有删除数据的风险（这个我也没试过）。
-1. `ifconfig <interface> mtu <size> up`到每个Node上把已经存在的`cali*`网卡的mtu都设置一遍，这个办法很保险但是很累。
+1. `ifconfig <interface> mtu <size> up`到每个Node上把已经存在的`cali*`网卡的mtu都设置一遍，运行这个命令：
+   ```
+   ifconfig | grep cali | cut -d ' ' -f 1 | xargs -n1 -I{} sudo ifconfig {} mtu 1450 up
+   ```
 
 
 [flannel-mtu]: https://github.com/coreos/flannel/blob/master/Documentation/configuration.md#key-command-line-options
