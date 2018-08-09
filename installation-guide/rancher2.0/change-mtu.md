@@ -93,7 +93,7 @@ metadata:
 1. 干掉这些Pod，让K8S的自动重启机制创建新Pod，不过这个办法不好，可能对Stateful Pod有删除数据的风险（这个我也没试过）。
 1. `ifconfig <interface> mtu <size> up`到每个Node上把已经存在的`cali*`网卡的mtu都设置一遍，运行这个命令：
    ```
-   ifconfig | grep cali | cut -d ' ' -f 1 | xargs -n1 -I{} sudo ifconfig {} mtu 1450 up
+   ifconfig | grep cali | cut -d ' ' -f 1 | xargs -n1 -I{} sudo ifconfig {} mtu <size> up
    ```
 
 
