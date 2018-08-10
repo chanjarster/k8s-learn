@@ -1,4 +1,4 @@
-# Rancher - 无法访问跨Project Service的问题
+# 无法访问跨Project Service的问题
 
 先说结论：Rancher会自动给Project里的Namespace添加NetworkPolicy，只允许相同Project下的Namespace里的网络流量互通，跨Project则不行。下面开始实验来证明：
 
