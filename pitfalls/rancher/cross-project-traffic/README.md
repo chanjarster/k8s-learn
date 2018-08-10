@@ -2,7 +2,9 @@
 
 Rancher版本: 2.0.6
 
-先说结论：Rancher会自动给Project里的Namespace添加NetworkPolicy，只允许相同Project下的Namespace里的网络流量互通，跨Project则不行。下面开始实验来证明：
+先说结论：Rancher会自动给Project里的Namespace添加NetworkPolicy，只允许相同Project下的Namespace里的网络流量互通，跨Project则不行。实际上这个问题是很坑的，特别当你要用到service mesh比如linkerd、istio的时候，因为网络不通导致无法运作。 
+
+下面开始实验来证明：
 
 ## 不挂在Project下的Namespace
 
