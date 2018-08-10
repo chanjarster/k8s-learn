@@ -24,6 +24,7 @@
 ## 坑
 
 * [Http Redirect端口丢失问题](pitfalls/http-302)
+* [K8S - 删除Namespace一直Terminating的问题](pitfalls/k8s/namespace-deletion-stuck)
 * [Rancher - 无法访问跨Project Service的问题](pitfalls/rancher/cross-project-traffic)
 * [Rancher - NetworkPolicy不自动删除](pitfalls/rancher/networkpolicy-not-delete)
 * [Rancher - ConfigMap/Secret自动删除空值key](pitfalls/rancher/configmap-secret-empty-key-deletion)
