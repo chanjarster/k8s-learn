@@ -7,8 +7,8 @@
 创建两个namespace：nginx-1和nginx-2，并且里面都跑了一个nginx和busybox。
 
 ```bash
-kubectl apply -f nginx-1.yaml
-kubectl apply -f nginx-2.yaml
+kubectl apply -f https://raw.githubusercontent.com/chanjarster/k8s-learn/master/pitfalls/rancher/cross-project-traffic/nginx-1.yaml
+kubectl apply -f https://raw.githubusercontent.com/chanjarster/k8s-learn/master/pitfalls/rancher/cross-project-traffic/nginx-2.yaml
 ```
 
 观察这两个namespace下是否有networkpolicy，结果是看不到：
