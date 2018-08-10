@@ -1,6 +1,6 @@
 # NetworkPolicy不自动删除
 
-写本文的时候Rancher版本：2.0.6
+Rancher版本: 2.0.6
 
 在[无法访问跨Project Service的问题](../cross-project-traffic)里我们提到了如果把一个Namespace挂到Project下，Rancher会自动给Namespace添加NetworkPolicy。
 
