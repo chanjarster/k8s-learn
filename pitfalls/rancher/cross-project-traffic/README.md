@@ -76,6 +76,48 @@ kubectl -n nginx-2 exec -it busybox-<podid> /bin/sh
 wget -O - nginx-svc.nginx-1.svc.cluster.local
 ```
 
+观察networkpolicy的内容：
+
+```bash
+$ kubectl -n nginx-1 get networkpolicy hn-nodes -o yaml
+apiVersion: extensions/v1beta1
+kind: NetworkPolicy
+metadata:
+  name: hn-nodes
+  namespace: nginx-1
+spec:
+  ingress:
+  - from:
+    - ipBlock:
+        cidr: 10.42.0.0/32
+    - ipBlock:
+        cidr: 10.42.1.0/32
+    - ipBlock:
+        cidr: 10.42.2.0/32
+  podSelector: {}
+  policyTypes:
+  - Ingress
+
+$ kubectl -n nginx-1 get networkpolicy np-default -o yaml
+
+apiVersion: extensions/v1beta1
+kind: NetworkPolicy
+metadata:
+  labels:
+    field.cattle.io/projectId: p-ts6bj
+  name: np-default
+  namespace: nginx-1
+spec:
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          field.cattle.io/projectId: p-ts6bj
+  podSelector: {}
+  policyTypes:
+  - Ingress
+```
+
 ## 解决办法
 
 怎么能够跨Project访问呢？抱歉目前我还不知道。
