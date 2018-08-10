@@ -24,6 +24,7 @@
 ## 坑
 
 * [Http Redirect端口丢失问题](pitfalls/http-302)
+* [Rancher - 无法访问跨Project Service的问题](pitfalls/rancher/cross-project-traffic)
 
 ## 镜像清单
 
