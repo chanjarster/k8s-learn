@@ -124,4 +124,7 @@ spec:
 
 ## 解决办法
 
-怎么能够跨Project访问呢？抱歉目前我还不知道。
+为此我在Rancher Forum发了一篇帖子，得到的答案是安装Cluster的时候选用Flannel插件（见[这里][forum]），怎么选用呢？见[RKE Network Plugi-ns][rke-network-plug-in]。
+
+[forum]: https://forums.rancher.com/t/pods-cannot-communicate-across-projects/11415/4?u=chanjarster
+[rke-network-plug-in]: https://rancher.com/docs/rke/v0.1.x/en/config-options/add-ons/network-plugins/
