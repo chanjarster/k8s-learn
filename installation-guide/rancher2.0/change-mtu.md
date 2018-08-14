@@ -96,7 +96,7 @@ metadata:
 }
 ```
 
-不过这里又有一个坑，Rancher在安装的时候生成的ConfigMap `canal-config`有一个key叫做`canal_iface`是空值（见[RKE源码][rke-canal-template]），然而在Rancher里修改ConfigMap都会把空值key给干掉，导致后面一步的DaemonSet `canal`启动不了，报`Couldn't find key canal_iface in ConfigMap kube-system/canal-config`的错，所以我们要手动添加`canal_iface`这个key到ConfigMap `canal-config`里，值填物理网卡名称就好了（关于这个问题我已经提交[issue #15010][issue-15010]到Rancher），如果你的Node的物理网卡名称不一样那就歇菜了。
+不过这里又有一个坑，Rancher在安装的时候生成的ConfigMap `canal-config`有一个key叫做`canal_iface`是空值（见[RKE源码][rke-canal-template]），然而在Rancher里修改ConfigMap都会把空值key给干掉，导致后面一步的DaemonSet `canal`启动不了，报`Couldn't find key canal_iface in ConfigMap kube-system/canal-config`的错，所以我们要手动添加`canal_iface`这个key到ConfigMap `canal-config`里，值填物理网卡名称就好了（关于这个问题我已经提交[issue #15010][issue-15010]到Rancher，2018-08-14更新：此问题在2.0.7里已修复），如果你的Node的物理网卡名称不一样那就歇菜了。
 
 解决第二个问题，我们得重启DaemonSet `canal`，重启方法很简单，只要删除它的Pod就可以了，K8S会自动运行新的Pod。
 
