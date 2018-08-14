@@ -1,5 +1,7 @@
 # 无法访问跨Project Service的问题
 
+2018-08-14: 从v2.0.7开始，默认关掉了Project的NetworkPolicy，此问题得到解决，详见[Rancher Release - v2.0.7][rancher-2.0.7]。
+
 Rancher版本: 2.0.6
 
 先说结论：Rancher会自动给Project里的Namespace添加NetworkPolicy，只允许相同Project下的Namespace里的网络流量互通，跨Project则不行。实际上这个问题是很坑的，特别当你要用到service mesh比如linkerd、istio的时候，因为网络不通导致无法运作。 
@@ -128,9 +130,5 @@ spec:
 
 [forum]: https://forums.rancher.com/t/pods-cannot-communicate-across-projects/11415/4?u=chanjarster
 [rke-network-plug-in]: https://rancher.com/docs/rke/v0.1.x/en/config-options/add-ons/network-plugins/
-
-## 更新 
-
-2018-08-14: 从v2.0.7开始，默认关掉了Project的NetworkPolicy，详见[Rancher Release - v2.0.7][rancher-2.0.7]
 
 [rancher-2.0.7]: https://forums.rancher.com/t/rancher-release-v2-0-7/11435
