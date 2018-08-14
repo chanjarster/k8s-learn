@@ -1,0 +1,31 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: istio-ingresses
+  namespace: istio-system
+spec:
+  rules:
+  - host: istio-prometheus.<your host name>
+    http:
+      paths:
+      - backend:
+          serviceName: prometheus
+          servicePort: http-prometheus
+  - host: istio-grafana.<your host name>
+    http:
+      paths:
+      - backend:
+          serviceName: grafana
+          servicePort: http
+  - host: istio-tracing.<your host name>
+    http:
+      paths:
+      - backend:
+          serviceName: jaeger-query
+          servicePort: query-http
+  - host: istio-servicegraph.<your host name>
+    http:
+      paths:
+      - backend:
+          serviceName: servicegraph
+          servicePort: http

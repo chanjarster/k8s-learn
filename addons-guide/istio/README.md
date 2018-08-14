@@ -46,8 +46,24 @@ docker save \
 docker load --input istio-images-v1.0.0.tar.gz
 ```
 
-然后根据[官方文档][official-install]的方法下载istio，然后根据[Quick Start with Kubernetes][Quick Start with Kubernetes]或者[Installation with Helm][Installation with Helm]安装。
+## 安装
 
+1. [安装Helm](../helm/README.md)
+1. 根据[Installing the sidecar][istio-sidecar-injection]提到，需要给kube-apiserver的`--admission-control`添加`MutatingAdmissionWebhook`和`ValidatingAdmissionWebhook`
+   1. 如果你用的是Rancher，那么可以参考[这个方法](../../installation-guide/rancher2.0/admission-control.md)
+1. [下载istio][download-istio]
+1. 然后根据[官方文档Installation with Helm][istio-helm-install]安装，使用选择`Option 2`的方式，安装命令：
+   ```
+   helm install install/kubernetes/helm/istio --name istio --namespace istio-system \
+     --set gateways.istio-ingressgateway.type=NodePort \
+     --set gateways.istio-egressgateway.type=NodePort \
+     --set tracing.enabled=true \
+     --set servicegraph.enabled=true \
+     --set grafana.enabled=true \
+   ```
+1. 为tracing、prometheus、servicegraph、grafana配置Ingress：
+   1. 修改目录下的`istio-ingresses.yaml`，把`<your host name>`替换成你自己的值
+   1. 执行`kubectl apply -f istio-ingresses.yaml`
 
 ## 备注
 
@@ -65,4 +81,7 @@ $(kubectl -n istio-system get pods -o jsonpath='{range .items[*]}{@.spec.contain
 
 [official-install]: https://istio.io/docs/setup/kubernetes/download-release/
 [Quick Start with Kubernetes]: https://istio.io/docs/setup/kubernetes/quick-start/
-[Installation with Helm]: https://istio.io/docs/setup/kubernetes/helm-install/
+[istio-helm-install]: https://istio.io/docs/setup/kubernetes/helm-install/
+[download-istio]: https://istio.io/docs/setup/kubernetes/download-release/
+[istio-sidecar-injection]: https://istio.io/docs/setup/kubernetes/sidecar-injection/
+[istio-install-helm-tiller]: https://istio.io/docs/setup/kubernetes/helm-install/#option-2-install-with-helm-and-tiller-via-helm-install
