@@ -128,3 +128,9 @@ spec:
 
 [forum]: https://forums.rancher.com/t/pods-cannot-communicate-across-projects/11415/4?u=chanjarster
 [rke-network-plug-in]: https://rancher.com/docs/rke/v0.1.x/en/config-options/add-ons/network-plugins/
+
+## 更新 
+
+从v2.0.7开始，默认关掉了Project的NetworkPolicy，详见[Rancher Release - v2.0.7][rancher-2.0.7]
+
+[rancher-2.0.7]: https://forums.rancher.com/t/rancher-release-v2-0-7/11435
