@@ -15,6 +15,7 @@
 * [Prometheus](addons-guide/prometheus)
 * [linkred2(conduit)](addons-guide/linkerd2)
 * [istio](addons-guide/istio)
+* [helm](addons-guide/helm)
 
 ## Sample App
 
