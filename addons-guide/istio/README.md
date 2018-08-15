@@ -55,6 +55,7 @@ docker load --input istio-images-v1.0.0.tar.gz
 1. 然后根据[官方文档Installation with Helm][istio-helm-install]安装
    * 注意文档开头要安装CRDs，里面提到一句话：
      > If you are enabling `certmanager`, you also need to install its CRDs...
+     
      certmanager是否启用看安装参数，见`certmanager.enabled`[安装参数][istio-install-options]。这个参数默认是false的。
 1. 选择`Option 2`的方式，安装命令：
    ```
