@@ -22,7 +22,6 @@ spec:
       name: http
   selector:
     app: echo
-    istio-injected: 'false'
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -31,18 +30,15 @@ metadata:
   namespace: istio-test
   labels:
     app: echo
-    istio-injected: 'false'
 spec:
   selector:
     matchLabels:
       app: echo
-      istio-injected: 'false'
   replicas: 3
   template:
     metadata:
       labels:
         app: echo
-        istio-injected: 'false'
       annotations:
         sidecar.istio.io/inject: "false"  
     spec:
@@ -69,8 +65,7 @@ spec:
       protocol: TCP
       name: http
   selector:
-    app: echo
-    istio-injected: 'true'
+    app: echo-istio
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -78,19 +73,16 @@ metadata:
   name: echo-istio
   namespace: istio-test
   labels:
-    app: echo
-    istio-injected: 'true'
+    app: echo-istio
 spec:
   selector:
     matchLabels:
-      app: echo
-      istio-injected: 'true'
+      app: echo-istio
   replicas: 3
   template:
     metadata:
       labels:
-        app: echo
-        istio-injected: 'true'
+        app: echo-istio
     spec:
       containers:
       - name: echo
