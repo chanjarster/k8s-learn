@@ -25,14 +25,31 @@
 
 ## 坑
 
+**K8S使用**
+
 * [Http Redirect端口丢失问题](pitfalls/http-302)
 * [K8S - 删除Namespace一直Terminating的问题](pitfalls/k8s/namespace-deletion-stuck)
-* [Rancher - 无法访问跨Project Service的问题](pitfalls/rancher/cross-project-traffic)(v2.0.7开始没有这个问题了)
-* [Rancher - NetworkPolicy不自动删除](pitfalls/rancher/networkpolicy-not-delete)
-* [Rancher - ConfigMap/Secret自动删除空值key](pitfalls/rancher/configmap-secret-empty-key-deletion)
+
+**Rancher**
+
+* v2.0.6 [Rancher - 无法访问跨Project Service的问题](pitfalls/rancher/cross-project-traffic)(v2.0.7已修复)
+* v2.0.6 [Rancher - ConfigMap/Secret自动删除空值key](pitfalls/rancher/configmap-secret-empty-key-deletion)(v2.0.7已修复)
+* v2.0.6 [Rancher - NetworkPolicy不自动删除](pitfalls/rancher/networkpolicy-not-delete)
+
+**Istio**
+
+* v1.0 [从Ingress Nginx过来的流量不会被trace][istio-issue-7963]
+* v1.0 [`x-forwarded-port`错误，导致SSL Termination情况下Redirect会被浏览器拒绝][istio-issue-7964]
+* v1.0 [Redis流量无法被trace][istio-issue-5725]
+* v1.0 [追加http request header时逻辑错误][istio-issue-8019]
 
 ## 镜像清单
 
 * [Docker镜像清单](installation-guide/docker-mirrors.md)
 * [K8S Image仓库镜像](installation-guide/k8s-image-repo-mirrors.md)
 
+
+[istio-issue-7963]: https://github.com/istio/istio/issues/7963
+[istio-issue-7964]: https://github.com/istio/istio/issues/7964
+[istio-issue-5725]: https://github.com/istio/istio/issues/5725
+[istio-issue-8019]: https://github.com/istio/istio/issues/8019
