@@ -6,7 +6,7 @@ metadata:
     istio-injection: enabled
 ---
 #######################################
-# echo without istio
+# echo istio not injected
 #######################################
 apiVersion: v1
 kind: Service
@@ -53,23 +53,8 @@ spec:
         - containerPort: 8080
           name: http
 ---
-apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-  name: echo
-  namespace: istio-test
-spec:
-  rules:
-  - host: ingress-test.<your domain name>
-    http:
-      paths:
-      - path: /echo
-        backend:
-          serviceName: echo
-          servicePort: http
----
 #######################################
-# echo with istio
+# echo istio injected
 #######################################
 apiVersion: v1
 kind: Service
@@ -114,10 +99,13 @@ spec:
         - containerPort: 8080
           name: http
 ---
+#######################################
+# Ingress Nginx for echo
+#######################################
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: echo-istio
+  name: echo
   namespace: istio-test
 spec:
   rules:
@@ -127,6 +115,10 @@ spec:
       - path: /echo-istio
         backend:
           serviceName: echo-istio
+          servicePort: http
+      - path: /echo
+        backend:
+          serviceName: echo
           servicePort: http
 ---
 ########################
@@ -152,7 +144,7 @@ apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
   namespace: istio-test
-  name: istio-test-virtual-service
+  name: echo-virtual-service
 spec:
   hosts:
   - "istio-test.<your domain name>"
@@ -161,7 +153,13 @@ spec:
   http:
   - match:
     - uri:
-        prefix: /echo
+        prefix: /echo-istio
     route:
     - destination:
         host: echo-istio
+  - match:
+    - uri:
+        prefix: /echo
+    route:
+    - destination:
+        host: echo

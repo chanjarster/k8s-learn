@@ -13,16 +13,18 @@ kubectl apply -f echo-server.yaml
 上面这个命令同时部署了几种模式，以方便让你对比它们的区别：
 
 
-| Mode                  | Url                                                 |
-|-----------------------|-----------------------------------------------------|
-| Ingress without Istio | `http://ingress-test.<your domain name>/echo`       |
-| Ingress with Istio    | `http://ingress-test.<your domain name>/echo-istio` |
-| Istio gateway         | `http://istio-test.<your domain name>/echo`         |
+| Entry         | Pod Mode              | Url                                                 |
+|---------------|-----------------------|-----------------------------------------------------|
+| Ingress Nginx | Istio not injected    | `http://ingress-test.<your domain name>/echo`       |
+| Ingress Nginx | Istio injected        | `http://ingress-test.<your domain name>/echo-istio` |
+| Istio Gateway | Istio not injected    | `http://istio-test.<your domain name>/echo`         |
+| Istio Gateway | Istio injected        | `http://istio-test.<your domain name>/echo-istio `  |
 
 如果你做了SSL Termination，则是：
 
-| Mode                  | Url                                                  |
-|-----------------------|------------------------------------------------------|
-| Ingress without Istio | `https://ingress-test.<your domain name>/echo`       |
-| Ingress with Istio    | `https://ingress-test.<your domain name>/echo-istio` |
-| Istio gateway         | `https://istio-test.<your domain name>/echo`         |
+| Entry         | Pod Mode              | Url                                                   |
+|---------------|-----------------------|-------------------------------------------------------|
+| Ingress Nginx | Istio not injected    | `https://ingress-test.<your domain name>/echo`        |
+| Ingress Nginx | Istio injected        | `https://ingress-test.<your domain name>/echo-istio ` |
+| Istio Gateway | Istio not injected    | `https://istio-test.<your domain name>/echo`          |
+| Istio Gateway | Istio injected        | `https://istio-test.<your domain name>/echo-istio `   |
