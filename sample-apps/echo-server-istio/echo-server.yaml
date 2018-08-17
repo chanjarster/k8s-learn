@@ -104,11 +104,11 @@ spec:
   - host: ingress-test.<your domain name>
     http:
       paths:
-      - path: /echo-istio
+      - path: /echo-istio/
         backend:
           serviceName: echo-istio
           servicePort: http
-      - path: /echo
+      - path: /echo/
         backend:
           serviceName: echo
           servicePort: http
@@ -145,13 +145,13 @@ spec:
   http:
   - match:
     - uri:
-        prefix: /echo-istio
+        prefix: /echo-istio/
     route:
     - destination:
         host: echo-istio
   - match:
     - uri:
-        prefix: /echo
+        prefix: /echo/
     route:
     - destination:
         host: echo
