@@ -1,6 +1,15 @@
-# Echo Server
+# Echo Server(Nginx Ingress版)
 
-Echo Server是一个用来观察HTTP请求的简易程序，当你访问它的时候，它会显示类似如下的内容：
+Echo Server是一个用来观察HTTP请求的简易程序，当你访问它的时候，它会回显你的请求。这个小程序很有用，特别当你通过Service或Ingress暴露Http应用的时候，可以用来观察到你应用的Request header（大部分反向代理的问题都可以通过这个小程序看出端倪）。
+
+安装方法，使用本项目的提供的yaml文件：
+
+```bash
+kubectl apply -f echo-server.yaml
+kubectl apply -f echo-server-ingress.yaml
+```
+
+访问`http://<node-ip>:<ingress-node-port>/echo-server`，会得到类似下面的内容：
 
 ```
 Hostname: echo-server-6fbbbbd9fb-dffx7
@@ -39,15 +48,4 @@ Request Headers:
 
 Request Body:
 	-no body in request-
-```
-
-这个小程序很有用，特别当你通过Service或Ingress暴露Http应用的时候，可以用来观察到你应用的Request header。
-
-安装方法：
-
-使用本项目的提供的yaml文件：
-
-```bash
-kubectl apply -f echo-server.yaml
-kubectl apply -f echo-server-ingress.yaml
 ```

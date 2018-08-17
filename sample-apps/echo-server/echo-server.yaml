@@ -35,5 +35,20 @@ spec:
         image: gcr.mirrors.ustc.edu.cn/google-containers/echoserver:1.10
         ports:
         - containerPort: 8080
-
-
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: echo-server-ingress
+  namespace: default
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /echo-server
+        backend:
+          serviceName: echo-server
+          servicePort: 80

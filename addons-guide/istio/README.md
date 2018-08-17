@@ -57,20 +57,22 @@ docker load --input istio-images-v1.0.0.tar.gz
      > If you are enabling `certmanager`, you also need to install its CRDs...
      
      certmanager是否启用看安装参数，见`certmanager.enabled`[安装参数][istio-install-options]。这个参数默认是false的。
-1. 选择`Option 2`的方式，安装命令：
+1. 选择`Option 2`的方式，安装命令，更多自定义参数见[安装参数][istio-install-options]：
    ```
    helm install install/kubernetes/helm/istio --name istio --namespace istio-system \
      --set gateways.istio-ingressgateway.type=NodePort \
      --set gateways.istio-egressgateway.type=NodePort \
      --set tracing.enabled=true \
      --set servicegraph.enabled=true \
-     --set grafana.enabled=true \
+     --set grafana.enabled=true
    ```
+   上面的安装命令我们启用了链路调用tracing、servicegraph和grafana。并且把istio的ingressgateway/egressgateway设置成NodePort模式（默认是LoadBalancer）。
 1. 为tracing、prometheus、servicegraph、grafana配置Ingress：
    1. 修改目录下的`istio-ingresses.yaml`，把`<your host name>`替换成你自己的值
    1. 执行`kubectl apply -f istio-ingresses.yaml`
 
 删除istio的方法：
+
 * `helm delete --purge istio`
 * `kubectl delete -f install/kubernetes/helm/istio/templates/crds.yaml -n istio-system`
 

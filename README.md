@@ -19,7 +19,8 @@
 
 ## Sample App
 
-* [Echo Server](sample-apps/echo-server)
+* [Echo Server](sample-apps/echo-server)(Nginx Ingress版)
+* [Echo Server](sample-apps/echo-server-istio)(Istio版)
 * [Emojivoto](sample-apps/emojivoto)(linkerd2 demo app)
 
 ## 坑
