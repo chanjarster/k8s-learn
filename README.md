@@ -7,15 +7,21 @@
 * [使用Kubespray安装](installation-guide/kubespray/README.md)
 * [使用Rancher 2.0安装](installation-guide/rancher2.0/README.md)(无DNS)
 
-## 组件安装指南
+## 组件
+
+**安装**
 
 * [Ingress Nginx](addons-guide/ingress)
 * [Dashboard配置Ingress](addons-guide/dashboard)
 * [Elasticsearch, Fluentd, Kibana](addons-guide/efk)
 * [Prometheus](addons-guide/prometheus)
 * [linkred2(conduit)](addons-guide/linkerd2)
-* [istio](addons-guide/istio)
+* [istio](addons-guide/istio/install)
 * [helm](addons-guide/helm)
+
+**Istio**：
+
+* [完整配置文件](addons-guide/istio/learn/effective-traffic-routing.md)
 
 ## Sample App
 
