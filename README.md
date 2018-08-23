@@ -48,6 +48,7 @@
 * v1.0 [`x-forwarded-port`错误，导致SSL Termination情况下Redirect会被浏览器拒绝][istio-issue-7964]
 * v1.0 [Redis流量无法被trace][istio-issue-5725]
 * v1.0 [追加http request header时逻辑错误][istio-issue-8019]
+* v1.0 [Jaeger无法记录多于2层的span][istio-issue-8019]
 
 ## 镜像清单
 
@@ -59,3 +60,4 @@
 [istio-issue-7964]: https://github.com/istio/istio/issues/7964
 [istio-issue-5725]: https://github.com/istio/istio/issues/5725
 [istio-issue-8019]: https://github.com/istio/istio/issues/8019
+[istio-issue-8155]: https://github.com/istio/istio/issues/8155
