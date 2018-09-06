@@ -24,6 +24,13 @@ Docker hub有时候会抽风，可以在每个kubelet服务器上配置镜像，
 
 用法参考阿里云的[使用apt-get进行安装](https://yq.aliyun.com/articles/110806#4)，注意把阿里云的url替换成清华的url就可以了。
 
+比如如果你是Ubuntu那么就运行以下两个命令：
+
+```bash
+curl -fsSL https://mirrors.tuna.tsinghua.edu.cn/docker/apt/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker/apt/repo $(lsb_release -cs) stable"
+```
+
 [daocloud]: https://www.daocloud.io/mirror#accelerator-doc
 [anjia0532]: https://github.com/anjia0532/gcr.io_mirror
 [ustc-docker]: http://mirrors.ustc.edu.cn/help/dockerhub.html
