@@ -28,7 +28,7 @@ Docker hub有时候会抽风，可以在每个kubelet服务器上配置镜像，
 
 ```bash
 curl -fsSL https://mirrors.tuna.tsinghua.edu.cn/docker/apt/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker/apt/repo $(lsb_release -cs) stable"
+sudo add-apt-repository  "deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker/apt/repo ubuntu-$(lsb_release -cs) main"
 ```
 
 [daocloud]: https://www.daocloud.io/mirror#accelerator-doc
