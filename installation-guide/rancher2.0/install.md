@@ -6,6 +6,10 @@
 
 本文所用到的服务器都是Ubuntu Server 16.04 LTS
 
+**这篇文章只是如何安装Rancher，虽然Rancher安装完毕后也是运行在K8S集群之上，但是这个K8S集群应该仅供Rancher使用，不应该有其他应用运行在这个K8S集群上。**
+
+**在安装好Rancher之后，需将已有的K8S集群纳管进来，或者利用Rancher创建K8S集群。关于如何拿已有的机器创建K8S集群见[这篇文档][rancher-custom-nodes]**
+
 ## 1. 准备Linux服务器
 
 根据[1. Provision Linux Hosts][1-provision-linux-hosts]章节准备3台机器，记住，这些服务器是最终作为K8S集群的node的。
@@ -150,3 +154,4 @@
 [self-signed-cert-template]: https://raw.githubusercontent.com/rancher/rancher/e9d29b3f3b9673421961c68adf0516807d1317eb/rke-templates/3-node-certificate.yml
 [base64]: https://rancher.com/docs/rancher/v2.x/en/installation/ha-server-install/#base64
 [self-signed-certs-ca]: https://www.jianshu.com/p/e5f46dcf4664
+[rancher-custom-nodes]: https://rancher.com/docs/rancher/v2.x/en/cluster-provisioning/rke-clusters/custom-nodes/
