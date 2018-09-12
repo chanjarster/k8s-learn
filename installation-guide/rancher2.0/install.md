@@ -17,7 +17,7 @@
 给每个机器安装Docker CE，步骤：
 
 1. 参考[Docker镜像清单](../docker-mirrors.md)里提到的方法，设置正确的软件源
-2. 运行`sudo apt-get install docker-ce=17.03.2~ce-0~ubuntu-xenial`，参考[Get Docker CE for Ubuntu][docker-ce-ubuntu]
+2. 运行`sudo apt -y install docker-ce=17.03.2~ce-0~ubuntu-xenial`，参考[Get Docker CE for Ubuntu][docker-ce-ubuntu]
 3. 执行`sudo usermod -aG docker $USER`将用户添加到docker用户组里，参考[Post-installation steps for Linux][docker-linux-postinstall]
 4. 参考[Docker镜像清单](../docker-mirrors.md)里提到的方法，配置docker hub镜像
 
