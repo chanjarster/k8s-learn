@@ -7,6 +7,13 @@
 * [使用Kubespray安装](installation-guide/kubespray/README.md)
 * [使用Rancher 2.0安装](installation-guide/rancher2.0/README.md)(无DNS)
 
+## 使用技巧
+
+**K8S**
+
+* [如何重启Deployment](skills/k8s/how-to-restart-deployment.md)
+* [如何关掉Node](skills/k8s/how-to-shutdown-node.md)
+
 ## 组件
 
 **安装**
