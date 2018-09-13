@@ -50,7 +50,7 @@ docker load --input istio-images-v1.0.0.tar.gz
 
 1. [安装Helm](../helm/README.md)，注意要通过`helm init --service-account tiller`的方式安装Tiller。
 1. 根据[Installing the sidecar][istio-sidecar-injection]提到，需要给kube-apiserver的`--admission-control`添加`MutatingAdmissionWebhook`和`ValidatingAdmissionWebhook`
-   1. 如果你用的是Rancher，那么可以参考[这个方法](../../installation-guide/rancher2.0/admission-control.md)
+   1. 如果你用的是Rancher，那么可以参考[这个方法](../../../installation-guide/rancher2.0/admission-control.md)
 1. [下载istio][download-istio]
 1. 然后根据[官方文档Installation with Helm][istio-helm-install]安装
    * 注意文档开头要安装CRDs，里面提到一句话：
