@@ -13,7 +13,7 @@
 
 * [如何重启Deployment](skills/k8s/how-to-restart-deployment.md)
 * [如何关掉Node](skills/k8s/how-to-shutdown-node.md)
-* [如果创建指向外部资源的Service](https://kubernetes.io/docs/concepts/services-networking/service/#services-without-selectors)
+* [如何创建指向外部资源的Service](https://kubernetes.io/docs/concepts/services-networking/service/#services-without-selectors)
 
 ## 组件
 
