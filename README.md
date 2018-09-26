@@ -14,6 +14,7 @@
 * [如何重启Deployment](skills/k8s/how-to-restart-deployment.md)
 * [如何关掉Node](skills/k8s/how-to-shutdown-node.md)
 * [如何创建指向外部资源的Service](https://kubernetes.io/docs/concepts/services-networking/service/#services-without-selectors)
+  * [Kubernetes best practices: mapping external services](https://chinagdg.org/2018/05/kubernetes-best-practices-mapping-external-services/)
 
 ## 组件
 
