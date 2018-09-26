@@ -27,6 +27,8 @@
 * [linkred2(conduit)](addons-guide/linkerd2)
 * [istio](addons-guide/istio/install)
 * [helm](addons-guide/helm)
+* Elastic Stack
+  * [beats](https://github.com/elastic/beats/tree/master/deploy/kubernetes)
 
 **Istio**：
 
