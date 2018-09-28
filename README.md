@@ -61,7 +61,7 @@
 * v1.0 ~~[追加http request header时逻辑错误][istio-issue-8019]~~
 
   这其实是bug中提到的echoserver的问题。Istio追加的header的行为是添加一个header，而不是追加值到原来的header里。
-* v1.0 ~~[Jaeger无法记录多于2层的span][istio-issue-8019]~~
+* v1.0 ~~[Jaeger无法记录多于2层的span][istio-issue-8155]~~
 
   还是程序的bug，应用代码要自己将trace相关的头再转发出去，详情见[文档](https://istio.io/docs/tasks/telemetry/distributed-tracing/#understanding-what-happened)
   
