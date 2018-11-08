@@ -17,9 +17,10 @@
 给每个机器安装Docker CE，步骤：
 
 1. 参考[Docker镜像清单](../docker-mirrors.md)里提到的方法，设置正确的软件源
-2. 运行`sudo apt -y install docker-ce=17.03.2~ce-0~ubuntu-xenial`，参考[Get Docker CE for Ubuntu][docker-ce-ubuntu]
-3. 执行`sudo usermod -aG docker $USER`将用户添加到docker用户组里，参考[Post-installation steps for Linux][docker-linux-postinstall]
-4. 参考[Docker镜像清单](../docker-mirrors.md)里提到的方法，配置docker hub镜像
+1. 运行`sudo apt -y install docker-ce=17.03.2~ce-0~ubuntu-xenial`，参考[Get Docker CE for Ubuntu][docker-ce-ubuntu]
+1. 执行`sudo usermod -aG docker $USER`将用户添加到docker用户组里，参考[Post-installation steps for Linux][docker-linux-postinstall]
+1. 修改Docker的Storage driver为overlay2，[文档][docker-storage-overlay2]
+1. 参考[Docker镜像清单](../docker-mirrors.md)里提到的方法，配置docker hub镜像
 
 ## 2. 配置负载均衡
 
@@ -155,3 +156,4 @@
 [base64]: https://rancher.com/docs/rancher/v2.x/en/installation/ha-server-install/#base64
 [self-signed-certs-ca]: https://www.jianshu.com/p/e5f46dcf4664
 [rancher-custom-nodes]: https://rancher.com/docs/rancher/v2.x/en/cluster-provisioning/rke-clusters/custom-nodes/
+[docker-storage-overlay2]: https://docs.docker.com/storage/storagedriver/overlayfs-driver/#configure-docker-with-the-overlay-or-overlay2-storage-driver
