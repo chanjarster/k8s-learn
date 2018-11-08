@@ -15,6 +15,14 @@
    ```
 1. 把这个tar上传到每个node上，然后执行`docker load --input tiller-v2.9.1.tar.gz`
 
+## 不导入docker image的方法
+
+```
+helm init --service-account tiller \
+  --tiller-image registry.cn-hangzhou.aliyuncs.com/google_containers/tiller:<tag>
+```
+
+`<tag>`是helm的版本
 
 ## 安装
 
