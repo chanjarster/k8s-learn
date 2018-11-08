@@ -52,7 +52,7 @@ docker load --input istio-images-v1.0.0.tar.gz
    1. 如果你用的是Rancher，那么可以参考[这个方法](../../../installation-guide/rancher2.0/admission-control.md)
 1. [下载istio][download-istio]
 1. 然后根据[官方文档Installation with Helm][istio-helm-install]安装
-   * 先[安装Helm](../helm/README.md)
+   * 先[安装Helm](../../helm/README.md)
    * 然后根据文档说明安装Tiller
    * 注意文档开头要安装CRDs，里面提到一句话：
      > If you are enabling `certmanager`, you also need to install its CRDs...
