@@ -1,0 +1,50 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: alertmanager
+  namespace: monitoring
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /alertmanager-main
+        backend:
+          serviceName: alertmanager-main
+          servicePort: web
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: grafana
+  namespace: monitoring
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /grafana
+        backend:
+          serviceName: grafana
+          servicePort: http
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: prometheus-k8s
+  namespace: monitoring
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /prometheus
+        backend:
+          serviceName: prometheus-k8s
+          servicePort: web

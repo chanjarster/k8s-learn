@@ -1,0 +1,36 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: grafana
+  namespace: monitoring
+spec:
+  rules:
+  - host: mon-grafana.<dns-name>
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: grafana
+          servicePort: http
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: others
+  namespace: monitoring
+spec:
+  rules:
+  - host: mon-prometheus.<dns-name>
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: prometheus-k8s
+          servicePort: web
+  - host: mon-alertmanager.<dns-name>
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: alertmanager-main
+          servicePort: web
