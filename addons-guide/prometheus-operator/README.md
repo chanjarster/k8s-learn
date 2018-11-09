@@ -1,5 +1,7 @@
 # Prometheus Operator安装指南
 
+本文用的是版本：v0.25.0
+
 ## 前期准备
 
 先有一个K8S集群，根据[Prerequisites][kube-prometheus-prerequisites]要求给`kubelet`设置两个启动参数：`--authentication-token-webhook=true`和`--authorization-mode=Webhook`。
