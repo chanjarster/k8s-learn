@@ -93,6 +93,50 @@ Rancher v2.1.1里默认开启了`--authentication-token-webhook=true`，但是�
 
 Prometheus和Alertmanager本身都是无密码访问的，为了安全起见可以利用Ingress开启Basic Auth来做一层防护，详见这篇文档：[Ingress Basic Authentication][ingress-basic-auth]。
 
+## 如何使用呢？
+
+你可以参照[Getting Started][p8s-operator-getting-started]。阅读的时候可以忽略Prometheus Operatator安装的这一部分。
+
+这篇文档大致思路是创建一个Prometheus对象和ServiceMonitor对象，这两个都是Prometheus Operator的CRDs。
+
+如果你想使用Prometheus Operator自己的prometheus实例（在namespace monitoring里有pod叫做prometheus-k8s），那么跳过文档里的创建Prometheus对象的步骤，创建RBAC：
+
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRole
+metadata:
+  name: prometheus-all-ns
+rules:
+- apiGroups: [""]
+  resources:
+  - nodes
+  - services
+  - endpoints
+  - pods
+  verbs: ["get", "list", "watch"]
+- apiGroups: [""]
+  resources:
+  - configmaps
+  verbs: ["get"]
+- nonResourceURLs: ["/metrics"]
+  verbs: ["get"]
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: prometheus-all-ns
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: prometheus-all-ns
+subjects:
+- kind: ServiceAccount
+  name: prometheus-k8s
+  namespace: monitoring
+```
+
+然后再创建ServiceMonitor对象就行了。
+
 [prometheus-operator]: https://github.com/coreos/prometheus-operator
 [kube-prometheus]: https://github.com/coreos/prometheus-operator/tree/master/contrib/kube-prometheus
 [kube-prometheus-quickstart]: https://github.com/coreos/prometheus-operator/tree/master/contrib/kube-prometheus#quickstart
@@ -101,3 +145,4 @@ Prometheus和Alertmanager本身都是无密码访问的，为了安全起见可�
 [exposing-prometheus]: https://github.com/coreos/prometheus-operator/blob/master/contrib/kube-prometheus/docs/exposing-prometheus-alertmanager-grafana-ingress.md
 [grafana-behind-proxy]: http://docs.grafana.org/installation/behind_proxy/
 [ingress-basic-auth]: https://kubernetes.github.io/ingress-nginx/examples/auth/basic/
+[p8s-operator-getting-started]: https://github.com/coreos/prometheus-operator/blob/v0.25.0/Documentation/user-guides/getting-started.md
