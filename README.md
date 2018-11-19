@@ -29,6 +29,7 @@
 * [helm](addons-guide/helm)
 * Elastic Stack
   * [beats](https://github.com/elastic/beats/tree/master/deploy/kubernetes)
+* [Etcd Operator](addons-guide/etcd-operator)
 
 **Istio**：
 
