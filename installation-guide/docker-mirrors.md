@@ -15,6 +15,8 @@ Docker hub有时候会抽风，可以在每个kubelet服务器上配置镜像，
 
 使用[阿里云](http://mirrors.aliyun.com)的，用法见[文档](https://yq.aliyun.com/articles/110806)。
 
+或者使用[清华](https://mirror.tuna.tsinghua.edu.cn/help/docker-ce/)的。
+
 **Docker Project**
 
 使用清华的：
