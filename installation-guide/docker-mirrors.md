@@ -17,6 +17,12 @@ Docker hub有时候会抽风，可以在每个kubelet服务器上配置镜像，
 
 或者使用[清华](https://mirror.tuna.tsinghua.edu.cn/help/docker-ce/)的。
 
+安装完成后执行：
+
+```bash
+sudo usermod -aG docker $USER
+```
+
 **Docker Project**
 
 使用清华的：
