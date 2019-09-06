@@ -16,6 +16,7 @@
 * [如何创建指向外部资源的Service](https://kubernetes.io/docs/concepts/services-networking/service/#services-without-selectors)
   * [Kubernetes best practices: mapping external services](https://chinagdg.org/2018/05/kubernetes-best-practices-mapping-external-services/)
 * [管理TLS证书](https://chanjarster.github.io/post/k8s-how-to-manage-tls-certs/)
+* [PV中目录权限不符合要求的解决办法](https://cloud.ibm.com/docs/containers?topic=containers-cs_troubleshoot_storage#nonroot)
 
 ## 组件
 
