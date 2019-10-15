@@ -49,6 +49,7 @@
 
 * [Http Redirect端口丢失问题](pitfalls/http-302)
 * [K8S - 删除Namespace一直Terminating的问题](pitfalls/k8s/namespace-deletion-stuck)
+* NFS卷不控制容量上限，即你可以使用任意容量，所以也不支持扩容，见这个[issue](https://github.com/kubernetes-incubator/external-storage/issues/1235#issuecomment-542043620)
 
 **Rancher**
 
