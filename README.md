@@ -74,7 +74,7 @@
 
 * [Docker镜像清单](installation-guide/docker-mirrors.md)
 * [K8S Image仓库镜像](installation-guide/k8s-image-repo-mirrors.md)
-
+* [Helm Chart仓库镜像](installation-guide/helm-mirrors.md)
 
 [istio-issue-7963]: https://github.com/istio/istio/issues/7963
 [istio-issue-7964]: https://github.com/istio/istio/issues/7964
