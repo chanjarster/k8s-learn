@@ -57,6 +57,7 @@
 * v2.0.6 ~~[Rancher - 无法访问跨Project Service的问题](pitfalls/rancher/cross-project-traffic)~~(v2.0.7已修复)
 * v2.0.6 ~~[Rancher - ConfigMap/Secret自动删除空值key](pitfalls/rancher/configmap-secret-empty-key-deletion)~~(v2.0.7已修复)
 * v2.0.6 [Rancher - NetworkPolicy不自动删除](pitfalls/rancher/networkpolicy-not-delete)
+* v2.3.6 [监控中得到的CPU和内存都是双倍的](https://github.com/rancher/rancher/issues/24343)
 
 **Istio**
 
