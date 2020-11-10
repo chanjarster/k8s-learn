@@ -18,6 +18,7 @@
 * [管理TLS证书](https://chanjarster.github.io/post/k8s-how-to-manage-tls-certs/)
 * [PV中目录权限不符合要求的解决办法](https://cloud.ibm.com/docs/containers?topic=containers-cs_troubleshoot_storage#nonroot)
 * [HPA](skills/k8s/hpa.md)
+* [K8S VXLAN Overlay网络8472端口冲突问题的排查](https://chanjarster.github.io/post/k8s/vxlan-8472-port-conflict/)
 
 ## 组件
 
